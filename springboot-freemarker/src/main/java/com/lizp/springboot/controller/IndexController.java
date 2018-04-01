@@ -6,9 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class IndexController {
+
 	@RequestMapping(value = "/index")
 	public String index(ModelMap map) {
-		map.put("title", "点击这里，进入迁移界面");
+		map.put("title", "欢迎");
 		return "index";
 	}
+
 }
