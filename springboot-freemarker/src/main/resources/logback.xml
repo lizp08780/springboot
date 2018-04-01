@@ -31,24 +31,11 @@
         </encoder>
     </appender>
 
-    <logger name="com.alibaba.dubbo" level="INFO" additivity="false">
-        <appender-ref ref="FRAMEWORK_FILE"/>
-    </logger>
-
     <logger name="org.springframework" level="INFO" additivity="false">
         <appender-ref ref="FRAMEWORK_FILE"/>
     </logger>
 
-    <logger name="com.bwton.core" level="INFO" additivity="false">
-        <appender-ref ref="FRAMEWORK_FILE"/>
-    </logger>
-    
-    <!-- 通过aop打印入参、出参 -->
-    <logger name="com.bwton.core.spring.web.servlet" level="DEBUG" additivity="false">
-        <appender-ref ref="FRAMEWORK_FILE"/>
-    </logger>
-
-    <root level="DEBUG">
+    <root level="INFO">
         <appender-ref ref="DEFAULT_FILE"/>
     </root>
 </configuration>
