@@ -13,4 +13,8 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+
+	<modules>
+		<module>springboot-freemarker</module>
+	</modules>
 </project>
