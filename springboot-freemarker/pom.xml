@@ -16,11 +16,8 @@
 	</parent>
 
 	<dependencies>
-		<!-- <dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>druid</artifactId>
-			<version>1.0.20</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>com.alibaba</groupId> <artifactId>druid</artifactId> 
+			<version>1.0.20</version> </dependency> -->
 
 		<dependency>
 			<groupId>org.apache.commons</groupId>
