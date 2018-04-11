@@ -17,5 +17,6 @@
 	<modules>
 		<module>springboot-freemarker</module>
 		<module>spring-boot-redis</module>
+		<module>springboot-redisson</module>
 	</modules>
 </project>
