@@ -11,6 +11,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
@@ -19,11 +20,13 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 public class DataSourceTemp {
 	@Bean(name = "tempDataSource")
 	@ConfigurationProperties(prefix = "spring.datasource.temp")
+	@Primary
 	public DataSource testDataSource() {
 		return DataSourceBuilder.create().build();
 	}
 
 	@Bean(name = "tempSqlSessionFactory")
+	@Primary
 	public SqlSessionFactory testSqlSessionFactory(@Qualifier("tempDataSource") DataSource dataSource)
 			throws Exception {
 		SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
@@ -34,11 +37,13 @@ public class DataSourceTemp {
 	}
 
 	@Bean(name = "tempTransactionManager")
+	@Primary
 	public DataSourceTransactionManager testTransactionManager(@Qualifier("tempDataSource") DataSource dataSource) {
 		return new DataSourceTransactionManager(dataSource);
 	}
 
 	@Bean(name = "tempSqlSessionTemplate")
+	@Primary
 	public SqlSessionTemplate testSqlSessionTemplate(
 			@Qualifier("tempSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
 		return new SqlSessionTemplate(sqlSessionFactory);
