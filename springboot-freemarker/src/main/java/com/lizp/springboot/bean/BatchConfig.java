@@ -37,10 +37,10 @@ public class BatchConfig {
 		return jobRepositoryFactoryBean.getObject();
 	}
 
-	public SimpleJobLauncher jobLauncher(DataSource dataSource, PlatformTransactionManager transactionManager)
-			throws Exception {
+	@Bean
+	public SimpleJobLauncher jobLauncher(JobRepository jobRepository) throws Exception {
 		SimpleJobLauncher jobLauncher = new SimpleJobLauncher();
-		jobLauncher.setJobRepository(this.jobRepository(dataSource, transactionManager));
+		jobLauncher.setJobRepository(jobRepository);
 		return jobLauncher;
 	}
 
