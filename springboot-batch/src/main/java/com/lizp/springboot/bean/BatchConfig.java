@@ -20,7 +20,7 @@ import com.lizp.springboot.bean.entity.Person;
 
 /**
  * org.springframework.batch.core.configuration.annotation.SimpleBatchConfiguration<br>
- * 基于内存的作业仓库
+ * 基于内存的作业仓库。不配置数据库，使用默认的DefaultBatchConfigurer、AbstractBatchConfiguration
  * 
  * @Description:
  * @author 李智鹏
