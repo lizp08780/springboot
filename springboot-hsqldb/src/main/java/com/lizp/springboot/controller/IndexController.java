@@ -14,15 +14,20 @@ public class IndexController {
 	private PersonDao personDao;
 
 	@RequestMapping(value = "/index")
-	public Person index() {
-		return personDao.findById(1L).get();
+	public Person index(Long id) {
+		return personDao.findById(id).get();
 	}
 
-	private void save() {
+	@RequestMapping(value = "/save")
+	public Person add(Integer age, String name) {
+		return save(age, name);
+	}
+
+	private Person save(Integer age, String name) {
 		Person person = new Person();
-		person.setAge(18);
-		person.setName("如花");
-		personDao.save(person);
+		person.setAge(age);
+		person.setName(name);
+		return personDao.save(person);
 	}
 
 }
