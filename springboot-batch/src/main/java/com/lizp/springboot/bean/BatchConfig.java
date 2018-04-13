@@ -7,9 +7,6 @@ import org.springframework.batch.core.configuration.annotation.EnableBatchProces
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
-import org.springframework.batch.core.launch.support.SimpleJobLauncher;
-import org.springframework.batch.core.repository.JobRepository;
-import org.springframework.batch.core.repository.support.MapJobRepositoryFactoryBean;
 import org.springframework.batch.core.step.tasklet.TaskletStep;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.ItemReader;
@@ -18,27 +15,22 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-import org.springframework.transaction.PlatformTransactionManager;
 
 import com.lizp.springboot.bean.entity.Person;
 
+/**
+ * org.springframework.batch.core.configuration.annotation.SimpleBatchConfiguration<br>
+ * 基于内存的作业仓库
+ * 
+ * @Description:
+ * @author 李智鹏
+ * @date 2018年4月13日 下午3:38:52
+ *
+ */
 @Configuration
 @EnableBatchProcessing // 开启批处理
 public class BatchConfig {
-	@Bean
-	public JobRepository jobRepository(PlatformTransactionManager transactionManager) throws Exception {
-		MapJobRepositoryFactoryBean mapJobRepositoryFactoryBean = new MapJobRepositoryFactoryBean();
-		mapJobRepositoryFactoryBean.setTransactionManager(transactionManager);
-		return mapJobRepositoryFactoryBean.getObject();
-	}
-
-	@Bean
-	public SimpleJobLauncher jobLauncher(JobRepository jobRepository, TaskExecutor taskExecutor) throws Exception {
-		SimpleJobLauncher jobLauncher = new SimpleJobLauncher();
-		jobLauncher.setJobRepository(jobRepository);
-		jobLauncher.setTaskExecutor(taskExecutor);// 线程池
-		return jobLauncher;
-	}
+	// private static Logger logger = LoggerFactory.getLogger(BatchConfig.class);
 
 	@Bean
 	public TaskExecutor taskExecutor() {
@@ -54,7 +46,7 @@ public class BatchConfig {
 	public TaskletStep step(StepBuilderFactory stepBuilderFactory, ItemWriter<Person> writer, ItemReader<Person> reader,
 			ItemProcessor<Person, Person> processor, TaskExecutor taskExecutor) {
 		ThreadPoolTaskExecutor pool = ((ThreadPoolTaskExecutor) taskExecutor);
-		return stepBuilderFactory.get("testStep").<Person, Person>chunk(1000) // 批处理每次提交1000条数据
+		return stepBuilderFactory.get("testStep").<Person, Person>chunk(10) // 批处理每次提交10条数据
 				.reader(reader) // 给step绑定reader
 				.processor(processor) // 给step绑定processor
 				.writer(writer) // 给step绑定writer

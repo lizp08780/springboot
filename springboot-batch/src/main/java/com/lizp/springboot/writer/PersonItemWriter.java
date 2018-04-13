@@ -19,6 +19,7 @@ public class PersonItemWriter implements ItemWriter<Person>, InitializingBean {
 
 	@Override
 	public void write(List<? extends Person> items) throws Exception {
+		System.err.println(items.size());
 		System.err.println(items);
 	}
 
