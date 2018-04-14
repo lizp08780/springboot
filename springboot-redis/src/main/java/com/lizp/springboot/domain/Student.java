@@ -1,6 +1,9 @@
 package com.lizp.springboot.domain;
 
-public class Student {
+import java.io.Serializable;
+
+public class Student implements Serializable {
+	private static final long serialVersionUID = -7858273006712275056L;
 	private Long id;
 	private String name;
 	private Integer age;

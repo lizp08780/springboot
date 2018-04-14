@@ -16,4 +16,14 @@ public class StudentServiceImpl implements StudentService {
 	public int insert(Student student) {
 		return studentDao.insert(student);
 	}
+
+	@Override
+	public Student getById(Long id) {
+		Student student = new Student();
+		student.setId(id);
+		student.setAge(123);
+		student.setName("test");
+		System.err.println("没有使用缓存：" + student);
+		return student;
+	}
 }
