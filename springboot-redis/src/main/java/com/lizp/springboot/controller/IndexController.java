@@ -16,9 +16,8 @@ import com.lizp.springboot.service.StudentService;
 public class IndexController {
 	@Autowired
 	private StudentService studentService;
-	@SuppressWarnings("rawtypes")
 	@Autowired
-	private RedisTemplate redisTemplate;
+	private RedisTemplate<String, Object> redisTemplate;
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index() {
@@ -29,19 +28,22 @@ public class IndexController {
 		return "ok";
 	}
 
-	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/get", method = RequestMethod.GET)
-	public String get(Long id) {
-		ValueOperations<String, String> operations = redisTemplate.opsForValue();
+	public Student get(Long id) {
+		ValueOperations<String, Object> operations = redisTemplate.opsForValue();
 		String key = "student_" + id;
 		boolean hasKey = redisTemplate.hasKey(key);
 		if (hasKey) {
-			String student = operations.get(key);
+			Student student = (Student) operations.get(key);
 			return student;
 		} else {
-			operations.set(key, "hehe" + id, 20, TimeUnit.SECONDS);
+			Student student = new Student();
+			student.setId(id);
+			student.setAge(13);
+			student.setName("test");
+			operations.set(key, student, 20, TimeUnit.SECONDS);
 		}
-		return "unkonw";
+		return null;
 	}
 
 }
