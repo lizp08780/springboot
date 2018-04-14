@@ -49,6 +49,7 @@ public class IndexController {
 	@RequestMapping(value = "/cache", method = RequestMethod.GET)
 	public Student cache(Long id) {
 		Student student = studentService.getById(id);
+		System.err.println(student);
 		return student;
 	}
 

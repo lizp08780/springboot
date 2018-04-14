@@ -49,10 +49,10 @@ public class RedisConfig {
 	 * @return
 	 */
 	@Bean
-	public RedisCacheManager cacheManager(RedisConnectionFactory connectionFactory) {
+	public RedisCacheManager cacheManager(RedisConnectionFactory connectionFactory,
+			RedisTemplate<String, Object> redisTemplate) {
 		RedisCacheConfiguration defaultCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig()
-				.serializeValuesWith(
-						SerializationPair.fromSerializer(new Jackson2JsonRedisSerializer<Object>(Object.class)))
+				.serializeValuesWith(SerializationPair.fromSerializer(redisTemplate.getValueSerializer()))
 				.entryTtl(Duration.ofMillis(20 * 1000));
 		RedisCacheManagerBuilder redisCacheManagerBuilder = RedisCacheManager.builder(connectionFactory)
 				.cacheDefaults(defaultCacheConfiguration);
