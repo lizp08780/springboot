@@ -16,7 +16,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class MybatisApplicationTest {
+public class RedisApplicationTest {
 	// private static final Logger logger =
 	// LoggerFactory.getLogger(MailApplicationTest.class);
 	private MockMvc mvc;

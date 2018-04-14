@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan("com.lizp.springboot.dao") // mapper 接口类扫描包配置
-public class MybatisApplication {
+public class RedisApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(MybatisApplication.class, args);
+		SpringApplication.run(RedisApplication.class, args);
 	}
 }
