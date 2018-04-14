@@ -14,9 +14,8 @@ public class IndexController {
 	private StudentService studentService;
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	public String index(Long id) {
+	public String index() {
 		Student student = new Student();
-		student.setId(id);
 		student.setAge(13);
 		student.setName("test");
 		studentService.insert(student);

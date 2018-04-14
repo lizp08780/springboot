@@ -30,7 +30,7 @@ public class MybatisApplicationTest {
 
 	@Test
 	public void test1() throws Exception {
-		mvc.perform(MockMvcRequestBuilders.get("/index").accept(MediaType.APPLICATION_JSON_UTF8).param("id", "100"))
+		mvc.perform(MockMvcRequestBuilders.get("/index").accept(MediaType.APPLICATION_JSON_UTF8))
 				.andExpect(MockMvcResultMatchers.status().isOk()).andDo(MockMvcResultHandlers.print()).andReturn();
 	}
 
