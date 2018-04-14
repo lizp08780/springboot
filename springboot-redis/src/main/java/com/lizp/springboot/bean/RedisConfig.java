@@ -1,10 +1,16 @@
 package com.lizp.springboot.bean;
 
+import java.time.Duration;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.cache.RedisCacheConfiguration;
+import org.springframework.data.redis.cache.RedisCacheManager;
+import org.springframework.data.redis.cache.RedisCacheManager.RedisCacheManagerBuilder;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.RedisSerializationContext.SerializationPair;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -33,6 +39,25 @@ public class RedisConfig {
 		redisTemplate.setValueSerializer(jackson2JsonRedisSerializer);
 		redisTemplate.afterPropertiesSet();
 		return redisTemplate;
+	}
+
+	/**
+	 * value默认的序列化方式是JdkSerializationRedisSerializer，无法通过配置来更改序列化方式<br>
+	 * 重写缓存管理器cacheManager
+	 * 
+	 * @param connectionFactory
+	 * @return
+	 */
+	@Bean
+	public RedisCacheManager cacheManager(RedisConnectionFactory connectionFactory) {
+		RedisCacheConfiguration defaultCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig()
+				.serializeValuesWith(
+						SerializationPair.fromSerializer(new Jackson2JsonRedisSerializer<Object>(Object.class)))
+				.entryTtl(Duration.ofMillis(20 * 1000));
+		RedisCacheManagerBuilder redisCacheManagerBuilder = RedisCacheManager.builder(connectionFactory)
+				.cacheDefaults(defaultCacheConfiguration);
+		RedisCacheManager cacheManager = redisCacheManagerBuilder.build();
+		return cacheManager;
 	}
 
 }
