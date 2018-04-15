@@ -6,20 +6,12 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 import com.lizp.springboot.dubbo.PersonDubboConsumerService;
 
-/**
- * Spring Boot 应用启动类
- *
- * Created by bysocket on 16/4/26.
- */
-// Spring Boot 应用的标识
 @SpringBootApplication
 public class ClientApplication {
 
-    public static void main(String[] args) {
-        // 程序启动入口
-        // 启动嵌入式的 Tomcat 并初始化 Spring 环境及其各 Spring 组件
-        ConfigurableApplicationContext run = SpringApplication.run(ClientApplication.class, args);
-        PersonDubboConsumerService cityService = run.getBean(PersonDubboConsumerService.class);
-        cityService.printCity();
-    }
+	public static void main(String[] args) {
+		ConfigurableApplicationContext run = SpringApplication.run(ClientApplication.class, args);
+		PersonDubboConsumerService personService = run.getBean(PersonDubboConsumerService.class);
+		personService.printPerson();
+	}
 }

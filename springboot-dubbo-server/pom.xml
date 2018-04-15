@@ -40,9 +40,15 @@
 		<dependency>
 			<groupId>io.dubbo.springboot</groupId>
 			<artifactId>spring-boot-starter-dubbo</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter</artifactId>
+				</exclusion>
+			</exclusions>
 			<version>1.0.0</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.lizp</groupId>
 			<artifactId>springboot-dubbo-api</artifactId>

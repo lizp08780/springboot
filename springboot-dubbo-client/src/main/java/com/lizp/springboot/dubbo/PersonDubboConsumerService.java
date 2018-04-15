@@ -11,7 +11,7 @@ public class PersonDubboConsumerService {
 	@Reference(version = "1.0.0")
 	PersonDubboService personDubboService;
 
-	public void printCity() {
+	public void printPerson() {
 		Person person = personDubboService.findById(1L);
 		System.out.println(person);
 	}
