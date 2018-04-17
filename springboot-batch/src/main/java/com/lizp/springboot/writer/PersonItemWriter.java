@@ -6,7 +6,7 @@ import org.springframework.batch.item.ItemWriter;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 
-import com.lizp.springboot.bean.entity.Person;
+import com.lizp.springboot.entity.Person;
 
 @Component
 public class PersonItemWriter implements ItemWriter<Person>, InitializingBean {

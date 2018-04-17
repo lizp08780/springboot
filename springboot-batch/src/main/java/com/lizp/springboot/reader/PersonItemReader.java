@@ -8,7 +8,7 @@ import org.springframework.batch.item.ParseException;
 import org.springframework.batch.item.UnexpectedInputException;
 import org.springframework.stereotype.Component;
 
-import com.lizp.springboot.bean.entity.Person;
+import com.lizp.springboot.entity.Person;
 
 @Component
 public class PersonItemReader implements ItemReader<Person> {

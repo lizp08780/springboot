@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
-import com.lizp.springboot.bean.entity.Person;
+import com.lizp.springboot.entity.Person;
 
 /**
  * org.springframework.batch.core.configuration.annotation.SimpleBatchConfiguration<br>

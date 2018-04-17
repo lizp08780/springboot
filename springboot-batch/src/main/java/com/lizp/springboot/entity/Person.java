@@ -1,4 +1,4 @@
-package com.lizp.springboot.bean.entity;
+package com.lizp.springboot.entity;
 
 public class Person {
 	private Long id;
