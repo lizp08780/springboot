@@ -28,5 +28,6 @@
 		<module>springboot-mybatis</module>
 		<module>springboot-redis</module>
 		<module>springboot-webflux</module>
+		<module>springboot-actuator</module>
 	</modules>
 </project>
