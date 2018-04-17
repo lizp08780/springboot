@@ -29,5 +29,7 @@
 		<module>springboot-redis</module>
 		<module>springboot-webflux</module>
 		<module>springboot-actuator</module>
+		<module>springboot-admin-client</module>
+		<module>springboot-admin-server</module>
 	</modules>
 </project>
