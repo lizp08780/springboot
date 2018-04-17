@@ -1,4 +1,4 @@
-package com.lizp.springboot.bean;
+package com.lizp.springboot.configuration;
 
 import javax.sql.DataSource;
 
