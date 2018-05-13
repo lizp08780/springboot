@@ -1,5 +1,7 @@
 package com.lizp.springboot.controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,6 +17,15 @@ public class IndexController {
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public Person index(Long id) {
+		Person person = new Person();
+		// person.setAge(age);
+		// person.setName(name);
+		person.setCreate(new Date());
+		return person;
+	}
+
+	@RequestMapping(value = "/find", method = RequestMethod.GET)
+	public Person find(Long id) {
 		return personService.findById(id);
 	}
 

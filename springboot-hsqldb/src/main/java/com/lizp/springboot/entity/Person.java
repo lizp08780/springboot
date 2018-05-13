@@ -1,5 +1,7 @@
 package com.lizp.springboot.entity;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,6 +13,7 @@ public class Person {
 	private Long id;
 	private String name;
 	private Integer age;
+	private Date create;
 
 	public Long getId() {
 		return id;
@@ -34,6 +37,14 @@ public class Person {
 
 	public void setAge(Integer age) {
 		this.age = age;
+	}
+
+	public Date getCreate() {
+		return create;
+	}
+
+	public void setCreate(Date create) {
+		this.create = create;
 	}
 
 	@Override

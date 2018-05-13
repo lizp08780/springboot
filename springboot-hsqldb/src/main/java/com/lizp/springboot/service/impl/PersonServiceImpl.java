@@ -1,5 +1,7 @@
 package com.lizp.springboot.service.impl;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,7 @@ public class PersonServiceImpl implements PersonService {
 		Person person = new Person();
 		person.setAge(age);
 		person.setName(name);
+		person.setCreate(new Date());
 		return personDao.save(person);
 	}
 
