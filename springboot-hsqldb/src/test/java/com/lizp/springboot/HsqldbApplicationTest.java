@@ -41,7 +41,9 @@ public class HsqldbApplicationTest {
 
 	@Test
 	public void test2() throws Exception {
-		log.info("{}", personDao.findById(2L).get());
+		// Optional<Person> optional = personDao.findById(2L);
+		log.info("{}", personDao.count());
+		log.info("{}", personDao.findAll());
 	}
 
 	@Test

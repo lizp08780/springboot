@@ -1,7 +1,5 @@
 package com.lizp.springboot.controller;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,7 +18,6 @@ public class IndexController {
 		Person person = new Person();
 		// person.setAge(age);
 		// person.setName(name);
-		person.setCreate(new Date());
 		return person;
 	}
 
