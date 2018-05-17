@@ -1,12 +1,26 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>hello</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>hello</title>
+<script type="text/javascript"
+	th:src="@{/assets/libs/jquery-2.2.4.min.js}"></script>
 </head>
 <body>
-<!--/*@thymesVar id="name" type="java.lang.String"*/-->
-<p th:text="'Hello！, ' + ${name} + '!'" >3333</p>
-<a th:href="@{/xx/yy}">相对路径</a>
+	<p th:text="'Hello！, ' + ${name} + '!'">3333</p>
+	<a th:href="@{/xx/yy}">相对路径</a>
+	<label th:text="#{welcome}"></label>
+	<input type="submit" th:value="#{submit}" />
+	<p>
+		<a href="javascript:CN()">简体中文</a>/<a href="javascript:US()">English</a>
+	</p>
+	<!-- <div th:replace="include/footer/inc_footer::copyright"></div> -->
+	<script th:inline="javascript">
+		function CN() {
+			location.href = '/checklanguage/CN';
+		}
+		function US() {
+			location.href = '/checklanguage/US';
+		}
+	</script>
 </body>
 </html>
