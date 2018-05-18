@@ -14,9 +14,15 @@ public class IndexController {
 		return "index";
 	}
 
-	@RequestMapping(value = "/error/403", method = RequestMethod.GET)
-	public String error403() {
-		return "errors/403";
+	@RequestMapping(value = "/index2", method = RequestMethod.GET)
+	public String index2(Model model) {
+		model.addAttribute("name", "Dear");
+		return "index2";
+	}
+
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public String home() {
+		return "home";
 	}
 
 	@RequestMapping(value = "/error/404", method = RequestMethod.GET)
