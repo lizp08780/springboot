@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.github.pagehelper.PageHelper;
 import com.lizp.springboot.annotation.Log;
 import com.lizp.springboot.job.TestJob;
 import com.lizp.springboot.persist.UserMapper;
@@ -41,6 +42,8 @@ public class IndexController {
 	@Log(desc = "测试记录日志")
 	public String index2(Model model) {
 		model.addAttribute("name", "Dear");
+		PageHelper.startPage(3, 2);
+		System.err.println(userMapper.selectAll());
 		return "index2";
 	}
 

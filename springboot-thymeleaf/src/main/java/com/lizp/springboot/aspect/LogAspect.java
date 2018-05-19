@@ -80,7 +80,7 @@ public class LogAspect {
 		}
 		log.setParam(buffer.toString());
 		log.setUserName("test");
-		logMapper.insert(log);
+		logMapper.insertSelective(log);
 	}
 
 	private String getDesc(JoinPoint joinPoint) {
