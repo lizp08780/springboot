@@ -14,10 +14,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.lizp.springboot.annotation.Log;
 import com.lizp.springboot.domain.SysMenu;
 import com.lizp.springboot.domain.SysUser;
 import com.lizp.springboot.job.TestJob;
@@ -52,11 +52,10 @@ public class IndexController {
 		return "index";
 	}
 
-	@RequestMapping(value = "/index2", method = RequestMethod.GET)
-	@Log(desc = "测试记录日志")
-	public String index2(Model model) {
-		model.addAttribute("name", "Dear");
-		return "index2";
+	@GetMapping("/system/main")
+	public String main(Model model) {
+		model.addAttribute("version", "1.0.0");
+		return "main";
 	}
 
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
