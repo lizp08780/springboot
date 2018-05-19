@@ -30,7 +30,7 @@ public class LogAspect {
 	@Autowired
 	private SysLogMapper logMapper;
 
-	@Pointcut("@annotation(com.lizp.springboot.annotation.Log)")
+	@Pointcut("@annotation(com.lizp.springboot.aspect.annotation.Log)")
 	private void pointcut() {
 	}
 
