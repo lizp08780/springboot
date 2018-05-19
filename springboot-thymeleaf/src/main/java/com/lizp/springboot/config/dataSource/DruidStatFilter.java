@@ -1,4 +1,4 @@
-package com.lizp.springboot.dataSource;
+package com.lizp.springboot.config.dataSource;
 
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.annotation.WebInitParam;

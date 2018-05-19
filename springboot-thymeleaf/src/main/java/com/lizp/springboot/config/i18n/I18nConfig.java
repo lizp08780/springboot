@@ -1,4 +1,4 @@
-package com.lizp.springboot.i18n;
+package com.lizp.springboot.config.i18n;
 
 import java.util.Locale;
 

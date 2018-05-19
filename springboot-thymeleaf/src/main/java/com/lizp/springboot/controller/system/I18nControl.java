@@ -1,4 +1,4 @@
-package com.lizp.springboot.controller;
+package com.lizp.springboot.controller.system;
 
 import java.util.Locale;
 

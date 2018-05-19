@@ -1,4 +1,4 @@
-package com.lizp.springboot.quartz;
+package com.lizp.springboot.config.quartz;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

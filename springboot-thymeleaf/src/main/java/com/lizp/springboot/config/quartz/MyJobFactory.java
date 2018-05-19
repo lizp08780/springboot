@@ -1,4 +1,4 @@
-package com.lizp.springboot.quartz;
+package com.lizp.springboot.config.quartz;
 
 import org.quartz.spi.TriggerFiredBundle;
 import org.springframework.beans.factory.annotation.Autowired;
