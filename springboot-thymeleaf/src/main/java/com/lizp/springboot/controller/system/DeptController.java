@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.lizp.springboot.annotation.Log;
-import com.lizp.springboot.annotation.Log.LOG_TYPE;
+import com.lizp.springboot.aspect.annotation.Log;
+import com.lizp.springboot.aspect.annotation.Log.LOG_TYPE;
 import com.lizp.springboot.domain.SysDept;
 import com.lizp.springboot.persist.SysDeptMapper;
 

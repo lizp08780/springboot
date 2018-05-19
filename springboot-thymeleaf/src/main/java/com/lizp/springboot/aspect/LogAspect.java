@@ -19,7 +19,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.alibaba.fastjson.JSON;
-import com.lizp.springboot.annotation.Log;
+import com.lizp.springboot.aspect.annotation.Log;
 import com.lizp.springboot.domain.SysLog;
 import com.lizp.springboot.persist.SysLogMapper;
 import com.lizp.springboot.util.IpUtils;

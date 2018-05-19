@@ -1,4 +1,4 @@
-package com.lizp.springboot.annotation;
+package com.lizp.springboot.aspect.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
