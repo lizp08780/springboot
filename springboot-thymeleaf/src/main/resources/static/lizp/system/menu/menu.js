@@ -63,9 +63,9 @@ function loading() {
 			align : 'center',
 			formatter : function(row, index) {
 				var actions = [];
-				actions.push('<a class="btn btn-primary btn-sm ' + editFlag + '" href="#" title="编辑" mce_href="#" onclick="edit(\'' + row.menuId + '\')"><i class="fa fa-edit"></i></a> ');
-				actions.push('<a class="btn btn-primary btn-sm ' + addFlag + '" href="#" title="新增" mce_href="#" onclick="add(\'' + row.menuId + '\')"><i class="fa fa-plus"></i></a> ');
-				actions.push('<a class="btn btn-warning btn-sm ' + removeFlag + '" href="#" title="删除" mce_href="#" onclick="remove(\'' + row.menuId + '\')"><i class="fa fa-remove"></i></a>');
+				actions.push('<a class="btn btn-primary btn-sm" href="#" title="编辑" mce_href="#" onclick="edit(\'' + row.menuId + '\')"><i class="fa fa-edit"></i></a> ');
+				actions.push('<a class="btn btn-primary btn-sm" href="#" title="新增" mce_href="#" onclick="add(\'' + row.menuId + '\')"><i class="fa fa-plus"></i></a> ');
+				actions.push('<a class="btn btn-warning btn-sm" href="#" title="删除" mce_href="#" onclick="remove(\'' + row.menuId + '\')"><i class="fa fa-remove"></i></a>');
 				return actions.join('');
 			}
         }];

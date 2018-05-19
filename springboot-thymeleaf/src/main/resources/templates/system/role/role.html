@@ -21,9 +21,5 @@
 	<script src="/ajax/libs/bootstrap-table/extensions/export/bootstrap-table-export.js" th:src="@{/ajax/libs/bootstrap-table/extensions/export/bootstrap-table-export.js}"></script>
 	<script src="/ajax/libs/bootstrap-table/extensions/export/tableExport.js" th:src="@{/ajax/libs/bootstrap-table/extensions/export/tableExport.js}"></script>
 	<script src="/lizp/system/role/role.js" th:src="@{/lizp/system/role/role.js}"></script>
-	<script th:inline="javascript">
-		var editFlag = [[${@permissionService.hasPermi('system:role:edit')}]];
-		var removeFlag = [[${@permissionService.hasPermi('system:role:remove')}]];
-	</script>
 </body>
 </html>

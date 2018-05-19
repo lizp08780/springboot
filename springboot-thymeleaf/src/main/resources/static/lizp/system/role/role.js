@@ -41,8 +41,8 @@ $(function() {
             align: 'center',
             formatter: function(value, row, index) {
             	var actions = [];
-				actions.push('<a class="btn btn-primary btn-sm ' + editFlag + '" href="#" title="编辑" mce_href="#" onclick="edit(\'' + row.roleId + '\')"><i class="fa fa-edit"></i></a> ');
-				actions.push('<a class="btn btn-warning btn-sm ' + removeFlag + '" href="#" title="删除" onclick="remove(\'' + row.roleId + '\')"><i class="fa fa-remove"></i></a>');
+				actions.push('<a class="btn btn-primary btn-sm" href="#" title="编辑" mce_href="#" onclick="edit(\'' + row.roleId + '\')"><i class="fa fa-edit"></i></a> ');
+				actions.push('<a class="btn btn-warning btn-sm" href="#" title="删除" onclick="remove(\'' + row.roleId + '\')"><i class="fa fa-remove"></i></a>');
 				return actions.join('');
             }
         }];

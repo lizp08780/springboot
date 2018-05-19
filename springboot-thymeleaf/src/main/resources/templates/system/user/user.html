@@ -30,10 +30,10 @@
 	
 	<div class="wrapper wrapper-content ui-layout-center">
         <div class="btn-group hidden-xs" id="tableToolbar" role="group">
-        	<button type="button" class="btn btn-outline btn-default" th:onclick="'javascript:add()'" shiro:hasPermission="system:user:add">
+        	<button type="button" class="btn btn-outline btn-default" th:onclick="'javascript:add()'">
                 <i class="glyphicon glyphicon-plus"></i>
             </button>
-            <button type="button" class="btn btn-outline btn-default" th:onclick="'javascript:batchRemove()'" shiro:hasPermission="system:user:batchRemove">
+            <button type="button" class="btn btn-outline btn-default" th:onclick="'javascript:batchRemove()'">
                 <i class="glyphicon glyphicon-trash"></i>
             </button>
         </div>
@@ -47,10 +47,5 @@
 	<script src="/lizp/system/user/user.js" th:src="@{/lizp/system/user/user.js}"></script>
 	<script src="/ajax/libs/jquery-layout/jquery.layout-latest.js" th:src="@{/ajax/libs/jquery-layout/jquery.layout-latest.js}"></script>
 	<script src="/ajax/libs/jquery-ztree/3.5/js/jquery.ztree.all-3.5.js" th:src="@{/ajax/libs/jquery-ztree/3.5/js/jquery.ztree.all-3.5.js}"></script>
-	<script th:inline="javascript">
-		var editFlag = [[${@permissionService.hasPermi('system:user:edit')}]];
-		var removeFlag = [[${@permissionService.hasPermi('system:user:remove')}]];
-		var resetPwdFlag = [[${@permissionService.hasPermi('system:user:resetPwd')}]];
-	</script>
 </body>
 </html>

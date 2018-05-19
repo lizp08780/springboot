@@ -6,7 +6,7 @@
 	<div class="wrapper wrapper-content">
 	    <div class="btn-group hidden-xs" id="tableToolbar" role="group">
 	    	<div class="form-group">
-	            <button type="button" class="btn btn-outline btn-default" th:onclick="'javascript:add(0)'" shiro:hasPermission="system:menu:add">
+	            <button type="button" class="btn btn-outline btn-default" th:onclick="'javascript:add(0)'">
 	                <i class="glyphicon glyphicon-plus"></i>
 	            </button>
 			</div>
@@ -16,10 +16,5 @@
 	</div>
 	<div th:include="include :: footer"></div>
 	<script src="/lizp/system/menu/menu.js" th:src="@{/lizp/system/menu/menu.js}"></script>
-	<script th:inline="javascript">
-		var addFlag = [[${@permissionService.hasPermi('system:menu:add')}]];
-		var editFlag = [[${@permissionService.hasPermi('system:menu:edit')}]];
-		var removeFlag = [[${@permissionService.hasPermi('system:menu:remove')}]];
-	</script>
 </body>
 </html>
