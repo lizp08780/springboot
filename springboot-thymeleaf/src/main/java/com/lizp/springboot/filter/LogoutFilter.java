@@ -26,7 +26,7 @@ public class LogoutFilter extends org.apache.shiro.web.filter.authc.LogoutFilter
 
 	@Override
 	protected String getRedirectUrl(ServletRequest request, ServletResponse response, Subject subject) {
-		String url = getLoginUrl();
+		String url = loginUrl;
 		if (StringUtils.isNotEmpty(url)) {
 			return url;
 		}

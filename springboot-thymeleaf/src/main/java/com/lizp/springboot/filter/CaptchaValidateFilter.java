@@ -30,6 +30,7 @@ public class CaptchaValidateFilter extends AccessControlFilter {
 		this.captchaType = captchaType;
 	}
 
+	// 2.
 	@Override
 	protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue)
 			throws Exception {
@@ -38,15 +39,18 @@ public class CaptchaValidateFilter extends AccessControlFilter {
 		if (captchaEbabled == false || !"post".equals(httpServletRequest.getMethod().toLowerCase())) {
 			return true;
 		}
+		// 校验验证码
 		return validateResponse(httpServletRequest, httpServletRequest.getParameter("validateCode"));
 	}
 
+	// 3.
 	@Override
 	protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
-		request.setAttribute("captcha", "captchaError");
+		request.setAttribute("captcha", "验证码错误");
 		return true;
 	}
 
+	// 1.
 	@Override
 	public boolean onPreHandle(ServletRequest request, ServletResponse response, Object mappedValue) throws Exception {
 		request.setAttribute("captchaEbabled", captchaEbabled);

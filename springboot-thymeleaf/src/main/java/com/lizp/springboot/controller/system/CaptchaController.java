@@ -62,11 +62,10 @@ public class CaptchaController {
 				capStr = code = captchaProducer.createText();
 				bi = captchaProducer.createImage(capStr);
 			}
-			session.setAttribute(Constants.KAPTCHA_SESSION_KEY, code);
+			session.setAttribute(Constants.KAPTCHA_SESSION_KEY, code);// 把验证码存入到shiro管理的session中
 			out = response.getOutputStream();
 			ImageIO.write(bi, "jpg", out);
 			out.flush();
-
 		} catch (Exception e) {
 			logger.error("验证码生成", e);
 		} finally {

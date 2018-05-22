@@ -18,12 +18,12 @@ import com.lizp.springboot.persist.SysDeptMapper;
 @Controller
 @RequestMapping("/system/dept")
 public class DeptController {
-	private static String prefix = "system/dept";
+	private static final String prefix = "system/dept";
 
 	@Autowired
 	private SysDeptMapper sysDeptMapper;
 
-	// @RequiresPermissions("system:dept:view")
+	//@RequiresPermissions("system:dept:view")
 	@GetMapping()
 	public String dept() {
 		return prefix + "/dept";
