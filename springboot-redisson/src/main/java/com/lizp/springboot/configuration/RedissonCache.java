@@ -129,7 +129,7 @@ public class RedissonCache implements Cache {
 
 	@Override
 	public void clear() {
-		redissonClient.getKeys().deleteByPattern(this.name + ":*");
+		redissonClient.getKeys().deleteByPattern(this.name + ":*");// 模糊删除
 	}
 
 	protected Object fromStoreValue(Object storeValue) {
