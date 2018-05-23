@@ -224,7 +224,6 @@ public class ShiroConfig {
 
 	@Bean
 	public RedissonSpringCacheManager cacheManager(RedissonClient redissonClient) {
-		RedissonSpringCacheManager cacheManager = new RedissonSpringCacheManager(redissonClient);
 		Map<String, CacheConfig> configMap = new ConcurrentHashMap<String, CacheConfig>();
 		CacheConfig cacheConfig = new CacheConfig(30 * 60 * 1000, 15 * 60 * 1000);
 		// cacheConfig.setMaxSize(maxSize);
@@ -233,6 +232,7 @@ public class ShiroConfig {
 		CacheConfig cacheConfig2 = new CacheConfig(30 * 60 * 1000, 15 * 60 * 1000);
 		// cacheConfig.setMaxSize(maxSize);
 		configMap.put("sessionCache", cacheConfig2);
+		RedissonSpringCacheManager cacheManager = new RedissonSpringCacheManager(redissonClient, configMap);
 		return cacheManager;
 	}
 
