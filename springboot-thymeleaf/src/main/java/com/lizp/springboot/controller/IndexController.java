@@ -10,6 +10,8 @@ import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.quartz.TriggerBuilder;
 import org.quartz.TriggerKey;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 import org.springframework.stereotype.Controller;
@@ -17,7 +19,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.lizp.springboot.aspect.annotation.DistributedLock;
 import com.lizp.springboot.domain.SysMenu;
 import com.lizp.springboot.domain.SysUser;
 import com.lizp.springboot.job.TestJob;
@@ -26,7 +30,7 @@ import com.lizp.springboot.persist.SysUserMapper;
 
 @Controller
 public class IndexController {
-
+	private Logger log = LoggerFactory.getLogger(IndexController.class);
 	@Autowired
 	private SchedulerFactoryBean schedulerFactoryBean;
 	@Autowired
@@ -70,6 +74,14 @@ public class IndexController {
 			scheduler.start();
 		}
 		return "home";
+	}
+
+	@GetMapping("/lock")
+	@ResponseBody
+	@DistributedLock(lockName = "testLock")
+	public String main() {
+		log.info("执行逻辑");
+		return "main";
 	}
 
 }
