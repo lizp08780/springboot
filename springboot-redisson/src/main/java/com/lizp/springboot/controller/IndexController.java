@@ -7,12 +7,18 @@ import org.redisson.api.RBucket;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.lizp.springboot.domain.Student;
+import com.lizp.springboot.service.StudentService;
 
 @RestController
 public class IndexController {
 	@Autowired
 	private RedissonClient redissonClient;
+	@Autowired
+	private StudentService studentService;
 
 	@RequestMapping(value = "/index")
 	public String index() {
@@ -30,6 +36,13 @@ public class IndexController {
 		map.put("test:ni:2", "cgj");
 		map.put("test:ni:3", "cjccgvj");
 		redissonClient.getBuckets().set(map);
+	}
+
+	@RequestMapping(value = "/cache", method = RequestMethod.GET)
+	public Student cache(Long id) {
+		Student student = studentService.getById(id);
+		System.err.println(student);
+		return student;
 	}
 
 }
