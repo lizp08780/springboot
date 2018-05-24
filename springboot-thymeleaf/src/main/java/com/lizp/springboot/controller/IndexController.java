@@ -78,8 +78,8 @@ public class IndexController {
 
 	@GetMapping("/lock")
 	@ResponseBody
-	@DistributedLock(lockName = "testLock")
-	public String main() {
+	@DistributedLock(lockName = "1.menuId")
+	public String test(String testLock, SysMenu x) {
 		log.info("执行逻辑");
 		return "main";
 	}

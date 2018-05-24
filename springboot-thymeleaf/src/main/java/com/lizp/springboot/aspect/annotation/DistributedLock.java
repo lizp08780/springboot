@@ -11,25 +11,25 @@ import java.lang.annotation.Target;
 @Documented
 public @interface DistributedLock {
 	/**
-	 * 锁的名称
+	 * 锁的名称，参数顺序.参数属性，如0.id；基本数据类型直接写参数顺序，如0
 	 * 
 	 * @return
 	 */
-	String lockName();
+	String[] lockName() default {};
 
 	/**
 	 * lockName前缀
 	 * 
 	 * @return
 	 */
-	String lockNamePre() default "lock:";
+	String lockNamePre() default "lock[";
 
 	/**
 	 * lockName后缀
 	 * 
 	 * @return
 	 */
-	String lockNamePost() default "";
+	String lockNamePost() default "]";
 
 	/**
 	 * 最长等待时间，默认-1，一直等待
