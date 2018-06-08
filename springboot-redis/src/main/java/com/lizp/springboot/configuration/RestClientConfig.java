@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 
 /**
  * 
- * @Description: RestTemplate客户端连接池配置
+ * @Description: RestTemplate客户端
  * @author 李智鹏
  * @date 2018年6月5日 下午3:34:10
  *
