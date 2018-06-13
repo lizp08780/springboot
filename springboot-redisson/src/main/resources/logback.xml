@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <property name="log_dir" value="../../../logs/springboot/logs" />
+    <property name="log_dir" value="/opt/logs/springboot/logs" />
     <appender name="DEFAULT_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <File>${log_dir}/application.log</File>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">

@@ -3,6 +3,8 @@ package com.lizp.springboot.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,11 +22,12 @@ public class IndexController {
 	private StudentService studentService;
 
 	@RequestMapping(value = "/index")
-	public String index() {
-		// RBucket<String> str = redissonClient.getBucket("test:wo:3");
-		// System.err.println(str.getAndDelete());
-		// batchSet();
-		redissonClient.getKeys().deleteByPattern("test:wo:*");
+	public String index(HttpServletRequest request) {
+		Object o = request.getSession().getAttribute("springboot");
+		if (o == null) {
+			o = "spring boot 牛逼了!!!有端口" + request.getLocalPort() + "生成";
+			request.getSession().setAttribute("springboot", o);
+		}
 		return "index";
 	}
 
