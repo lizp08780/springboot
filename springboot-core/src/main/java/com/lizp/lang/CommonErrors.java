@@ -61,9 +61,4 @@ public enum CommonErrors implements Err {
     public String getMsg() {
         return msg;
     }
-
-    @Override
-    public Err[] getValues() {
-        return CommonErrors.values();
-    }
 }
