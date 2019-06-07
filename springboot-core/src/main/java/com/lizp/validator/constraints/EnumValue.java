@@ -19,7 +19,7 @@ public @interface EnumValue {
 
     Class<? extends Payload>[] payload() default {};
 
-    Class<? extends Enum> value();
+    Class<? extends Enum> value();//枚举必须继承Err
 
     @Target({ElementType.FIELD})
     @Retention(RetentionPolicy.RUNTIME)
