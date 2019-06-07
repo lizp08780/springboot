@@ -7,23 +7,21 @@ public interface Err {
 
     String getMsg();
 
-    default boolean equals2(Object obj) {
-        return this.getCode().equals(obj + "");
+    default boolean equals2(Object code) {
+        return this.getCode().equals(code + "");
     }
 
     default Integer getInt() {
         return Integer.parseInt(this.getCode());
     }
 
-    Err[] getValues();
-
-    //这里实现主要逻辑，简化枚举的实现
-    default String msgOf(String code) {
-        for (Err c : this.getValues()) {
-            if (c.getCode().equals(code)) {
-                return c.getMsg();
+    static <E extends Enum<?> & Err> E codeOf(Class<E> enumClass, Object code) {
+        E[] enumConstants = enumClass.getEnumConstants();
+        for (E e : enumConstants) {
+            if (e.equals2(code)) {
+                return e;
             }
         }
-        throw new BusinessException(CommonErrors.INVALID_PARAM, "不存在枚举值:" + code);
+        throw new BusinessException(CommonErrors.INVALID_PARAM, code + "不是" + enumClass + "的枚举值");
     }
 }

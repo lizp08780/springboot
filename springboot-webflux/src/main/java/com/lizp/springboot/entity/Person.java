@@ -1,5 +1,6 @@
 package com.lizp.springboot.entity;
 
+import com.lizp.lang.Err;
 import com.lizp.springboot.enums.SexEnum;
 import com.lizp.validator.constraints.EnumValue;
 
@@ -56,5 +57,10 @@ public class Person {
     @Override
     public String toString() {
         return "Person [id=" + id + ", name=" + name + ", age=" + age + "]";
+    }
+
+    public static void main(String[] args) {
+        // E[] enumConstants = SexEnum.class.getEnumConstants();
+        System.err.println(Err.codeOf(SexEnum.class, "2"));
     }
 }
