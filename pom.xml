@@ -16,20 +16,21 @@
 	</properties>
 
 	<modules>
-		<module>springboot-freemarker</module>
-		<module>spring-boot-redis</module>
-		<module>springboot-redisson</module>
-		<module>springboot-batch</module>
-		<module>springboot-dubbo-api</module>
-		<module>springboot-dubbo-client</module>
-		<module>springboot-dubbo-server</module>
-		<module>springboot-hsqldb</module>
-		<module>springboot-mail</module>
-		<module>springboot-mybatis</module>
-		<module>springboot-redis</module>
+		<!--<module>springboot-freemarker</module>-->
+		<!--<module>spring-boot-redis</module>-->
+		<!--<module>springboot-redisson</module>-->
+		<!--<module>springboot-batch</module>-->
+		<!--<module>springboot-dubbo-api</module>-->
+		<!--<module>springboot-dubbo-client</module>-->
+		<!--<module>springboot-dubbo-server</module>-->
+		<!--<module>springboot-hsqldb</module>-->
+		<!--<module>springboot-mail</module>-->
+		<!--<module>springboot-mybatis</module>-->
+		<!--<module>springboot-redis</module>-->
 		<module>springboot-webflux</module>
-		<module>springboot-actuator</module>
-		<module>springboot-admin-client</module>
-		<module>springboot-admin-server</module>
+		<!--<module>springboot-actuator</module>-->
+		<!--<module>springboot-admin-client</module>-->
+		<!--<module>springboot-admin-server</module>-->
+		<module>springboot-core</module>
 	</modules>
 </project>

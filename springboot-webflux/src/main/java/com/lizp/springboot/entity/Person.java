@@ -1,43 +1,60 @@
 package com.lizp.springboot.entity;
 
+import com.lizp.springboot.enums.SexEnum;
+import com.lizp.validator.constraints.EnumValue;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Person {
-	@Id
-	@GeneratedValue
-	private Long id;
-	private String name;
-	private Integer age;
+    @Id
+    @GeneratedValue
+    private Long id;
+    private String name;
 
-	public Long getId() {
-		return id;
-	}
+    @NotNull
+    private Integer age;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @EnumValue(SexEnum.class)
+    private Short sex;
 
-	public String getName() {
-		return name;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public Integer getAge() {
-		return age;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setAge(Integer age) {
-		this.age = age;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	@Override
-	public String toString() {
-		return "Person [id=" + id + ", name=" + name + ", age=" + age + "]";
-	}
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public Short getSex() {
+        return sex;
+    }
+
+    public void setSex(Short sex) {
+        this.sex = sex;
+    }
+
+    @Override
+    public String toString() {
+        return "Person [id=" + id + ", name=" + name + ", age=" + age + "]";
+    }
 }
