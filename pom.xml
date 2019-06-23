@@ -17,8 +17,8 @@
 
 	<modules>
 		<!--<module>springboot-freemarker</module>-->
-		<!--<module>spring-boot-redis</module>-->
-		<!--<module>springboot-redisson</module>-->
+        <!--<module>springboot-redis</module>-->
+        <!--<module>springboot-redisson</module>-->
 		<!--<module>springboot-batch</module>-->
 		<!--<module>springboot-dubbo-api</module>-->
 		<!--<module>springboot-dubbo-client</module>-->
